@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Website Edit</title>
+</head>
+
+<body>
+<!--Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="row container-fluid">
+        <div class="col-sm-1">
+            <div class="navbar-text pull-left margin-left">
+                <a class="content-color-white" href="http://localhost:3000/assignment/website-list.html">
+                    <span class="glyphicon glyphicon-chevron-left "></span>
+                </a>
+            </div>
+        </div>
+        <!--Left Header-->
+        <div class="col-sm-3 hidden-xs">
+            <div class="navbar-header">
+                <a class="navbar-brand pull-left">
+                    Websites
+                </a>
+            </div>
+            <div class="navbar-text pull-right" href="http://localhost:3000/assignment/website-new.html">
+                <a class="content-color-white">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </a>
+            </div>
+        </div>
+        <!--Right Header-->
+        <div class="col-sm-8">
+            <div class="navbar-text pull-right">
+                <a class="content-color-white" href="http://localhost:3000/assignment/website-list.html">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </a>
+            </div>
+            <div>
+                <a class="navbar-brand">
+                    Edit Website
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!--Content-->
+<div class="row container-fluid">
+    <!--Left Content-->
+    <div class="col-sm-4 hidden-xs">
+        <div>
+            <div class="topic-distance">
+                <label class="content-color-blue margin-left">Blogging App</label>
+                <a class="pull-right"  href="http://localhost:3000/assignment/website-edit.html">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+            <div class="topic-distance">
+                <label class="content-color-blue margin-left">Address Book App</label>
+                <a class="pull-right" href="http://localhost:3000/assignment/website-edit.html">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+            <div class="topic-distance">
+                <label class="content-color-blue margin-left">Script Testing App</label>
+                <a class="pull-right"  href="http://localhost:3000/assignment/website-edit.html">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+            <div class="topic-distance">
+                <label class="content-color-blue margin-left">Blogger</label>
+                <a class="pull-right"  href="http://localhost:3000/assignment/website-edit.html">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--Right Content-->
+    <div class="col-sm-8">
+        <label>Website Name</label>
+        <div class="margin-bottom-18px";>
+            <input id="name"
+                   type="text"
+                   class="form-control"
+                   placeholder="Name"/>
+        </div>
+        <label>Website Description</label>
+        <textarea id="description"
+                  type="text"
+                  class="form-control topic-distance"
+                  placeholder="Here is your description"></textarea>
+
+        <a href="http://localhost:3000/assignment/website-list.html">
+            <button class="btn btn-danger btn-block">Delete</button>
+        </a>
+    </div>
+</div>
+
+
+<!--Footer-->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="row container-fluid">
+        <a href="http://localhost:3000/assignment/profile.html">
+            <div class="navbar-text pull-right margin-right">
+                <span class="glyphicon glyphicon-user"></span>
+            </div>
+        </a>
+    </div>
+</nav>
+
+
+
+</body>
+</html>
