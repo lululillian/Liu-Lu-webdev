@@ -56,6 +56,7 @@
                 if( web._id === websiteId ) {
                     websites[w].name = website.name;
                     websites[w].description = website.description;
+                    console.log(websites);
                     return web;
                 }
             }

@@ -5,7 +5,7 @@
             <!--Left Arrow-->
             <div class="col-sm-1">
                 <div class="navbar-text pull-left">
-                    <a class="content-color-white" href="#/website-list">
+                    <a class="content-color-white" href="#/user/{{model.userId}}/website/">
                         <span class="glyphicon glyphicon-chevron-left "></span>
                     </a>
                 </div>
@@ -18,7 +18,7 @@
                     </a>
                 </div>
                 <div class="navbar-text pull-right ">
-                    <a class="content-color-white" href="#/website-new">
+                    <a class="content-color-white" href="#/user/{{model.userId}}/website/new">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </div>
@@ -26,7 +26,7 @@
             <!--Right Header-->
             <div class="col-sm-8">
                 <div class="navbar-text pull-right">
-                    <a class="content-color-white" href="#/website-list">
+                    <a class="content-color-white" ng-click = "model.createWeb(model.website);">
                         <span class="glyphicon glyphicon-ok"></span>
                     </a>
                 </div>
@@ -44,38 +44,23 @@
     <div class="container-fluid">
         <!--Left Content-->
         <div class="col-sm-4 hidden-xs">
-            <div>
-                <div class="topic-distance">
-                    <label class="content-color-blue margin-left">Blogging App</label>
-                    <a class="pull-right" href="#/website-edit">
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </a>
+            <li ng-repeat="website in model.websites" class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-10">
+                        {{website.name}}
+                    </div>
+                    <div class="col-xs-2">
+                        <a class="glyphicon glyphicon-cog pull-right"  href = "#/user/{{model.userId}}/website/{{website._id}}"></a>
+                    </div>
                 </div>
-                <div class="topic-distance">
-                    <label class="content-color-blue margin-left">Address Book App</label>
-                    <a class="pull-right" href="#/website-edit">
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </a>
-                </div>
-                <div class="topic-distance">
-                    <label class="content-color-blue margin-left">Script Testing App</label>
-                    <a class="pull-right"  href="#/website-edit">
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </a>
-                </div>
-                <div class="topic-distance">
-                    <label class="content-color-blue margin-left">Blogger</label>
-                    <a class="pull-right"  href="#/website-edit">
-                        <span class="glyphicon glyphicon-cog"></span>
-                    </a>
-                </div>
-            </div>
+            </li>
         </div>
         <!--Right Content-->
         <div class="col-sm-8">
             <label>Name</label>
             <div class="margin-bottom-18px">
                 <input id="name"
+                       ng-model ="model.website.name"
                        type="text"
                        class="form-control"
                        placeholder="Name"/>
@@ -83,6 +68,7 @@
 
             <label>Description</label>
             <textarea id="description"
+                      ng-model = "model.website.description"
                         type="text"
                         class="form-control"
                         placeholder="Here is your description"></textarea>

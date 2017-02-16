@@ -4,7 +4,7 @@
     <div class="row container-fluid">
         <div class="col-sm-1">
             <div class="navbar-text pull-left margin-left">
-                <a class="content-color-white" href="#/website-list">
+                <a class="content-color-white" href="#/user/{{model.userId}}/website/">
                     <span class="glyphicon glyphicon-chevron-left "></span>
                 </a>
             </div>
@@ -16,8 +16,8 @@
                     Websites
                 </a>
             </div>
-            <div class="navbar-text pull-right" href="#/website-new">
-                <a class="content-color-white">
+            <div class="navbar-text pull-right" >
+                <a class="content-color-white" href="#/user/{{model.userId}}/website/new" >
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </div>
@@ -25,7 +25,7 @@
         <!--Right Header-->
         <div class="col-sm-8">
             <div class="navbar-text pull-right">
-                <a class="content-color-white" href="#/website-list">
+                <a class="content-color-white" href="#/user/{{model.userId}}/website/">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -50,7 +50,7 @@
                         <span class="glyphicon glyphicon-triangle-top"></span>
                     </div>
                     <div class="col-xs-2">
-                        <a href="website-new.html" class="pull-right">
+                        <a href="#/user/{{model.userId}}/website/new" class="pull-right">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -62,7 +62,7 @@
                         {{website.name}}
                     </div>
                     <div class="col-xs-2">
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                        <a class="glyphicon glyphicon-cog pull-right" href = "#/user/{{model.userId}}/website/{{website._id}}"></a>
                     </div>
                 </div>
             </li>
@@ -83,9 +83,9 @@
         <label for="website-description">Website Description</label>
         <textarea ng-model="model.website.description" placeholder="Website Description"
                   class="form-control"
-                  id="website-description">This is the description of facebook website</textarea>
+                  id="website-description">{{model.website.name}}</textarea>
 
-        <a href="website-list.html" class="btn btn-primary btn-block">
+        <a ng-click = "model.update(model.website)" class="btn btn-primary btn-block">
             Update
         </a>
         <a ng-click="model.deleteWebsite()" class="btn btn-danger btn-block">
