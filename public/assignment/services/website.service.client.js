@@ -26,6 +26,8 @@
         function createWebsite(userId, website) {
             website.developerId = userId;
             website._id = (new Date()).getTime();
+            website.created = new Date();
+            website.update = website.created;
             websites.push(website);
         }
 
@@ -56,6 +58,7 @@
                 if( web._id === websiteId ) {
                     websites[w].name = website.name;
                     websites[w].description = website.description;
+                    websites[w].update = new Date();
                     console.log(websites);
                     return web;
                 }
