@@ -1,24 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
-    <meta charset="UTF-8">
-    <title>Profile</title>
-</head>
-
-<body>
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <a href="profile.html">
-            <div class="navbar-text pull-right">
-                <span class="glyphicon glyphicon-ok"></span>
+            <div class="navbar-text pull-right"  >
+                <span class="glyphicon glyphicon-ok" ng-click="model.update(model.user);"></span>
             </div>
-        </a>
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Profile</a>
+            <a class="navbar-brand">Profile</a>
         </div>
     </div>
 </nav>
@@ -26,9 +12,18 @@
 
 <div class="container-fluid margin-bottom-5px">
 
+    <div class="alert alert-danger" ng-show="model.error">
+        {{model.error}}
+    </div>
+    <div class="alert alert-success" ng-show="model.message">
+        {{model.message}}
+    </div>
+
+
     <div class="margin-bottom-18px">
         <lable for="first"><strong>Username</strong></lable>
         <input id="username"
+               ng-model="model.user.username"
                type="text"
                class="form-control"
                placeholder="jannunzi"/>
@@ -36,6 +31,7 @@
     <div class="margin-bottom-18px">
         <lable for="email"><strong>Email</strong></lable>
         <input id="email"
+               ng-model="model.user.email"
                type="email"
                class="form-control"
                placeholder="jannunzi@gmail.com">
@@ -43,6 +39,7 @@
     <div class="margin-bottom-18px">
         <lable for="first"><strong>Fist Name</strong></lable>
         <input id="firstname"
+               ng-model="model.user.firstName"
                type="text"
                class="form-control"
                placeholder="Jose"/>
@@ -50,17 +47,19 @@
     <div class="margin-bottom-18px">
         <lable for="last"><strong>Last Name</strong></lable>
         <input id="lastname"
+               ng-model="model.user.lastName"
                type="text"
                class="form-control"
                placeholder="Annunziato">
     </div>
+
     <div class="margin-bottom-5px">
-        <a href="website-list.html" class="button">
+        <a ng-href="#/user/{{model.user._id}}/website">
             <button class="btn btn-primary btn-block">Websites</button>
         </a>
     </div>
 
-    <a href="login.html" class="button">
+    <a href="#/login">
         <button class="btn btn-danger btn-block">Logout</button>
     </a>
 
@@ -68,7 +67,7 @@
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
-            <a href="profile.html">
+            <a href="#/profile">
                 <div class="navbar-text pull-right">
                     <span class="glyphicon glyphicon-user"></span>
                 </div>
@@ -80,5 +79,3 @@
     </nav>
 
 </div>
-</body>
-</html>
