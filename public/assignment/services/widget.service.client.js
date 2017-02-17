@@ -6,15 +6,15 @@
     function WidgetService() {
 
         var widgets = [
-            { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
-            { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-            { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-                "url": "https://i.kinja-img.com/gawker-media/image/upload/s--UE7cu6DV--/c_scale,fl_progressive,q_80,w_800/xoo0evqxzxrrmrn4ayoq.jpg"},
-            { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": '<p>Anker’s kevlar-reinforced PowerLine cables are <a href="http://gear.lifehacker.com/your-favorite-lightning-cables-anker-powerline-and-pow-1782036601" target="_blank" rel="noopener">far and away our readers’ top choice for charging their gadgets</a>, and you can save on several models today, including some from the nylon-wrapped PowerLine+ collection. I use these cables every single day, and I’ve never had one fray or stop working. Just be sure to note the promo codes below.<br></p>'},
-            { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-            { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-                "url": "https://youtu.be/AM2Ivdi9c4E" },
-            { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
+            { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 1, "text": "BOSTON SNOW STROM 2017"},
+            { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 3, "text": "Snow will cause a slippery evening commute in Boston"},
+            { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "90%",
+                "url": "https://www.boston.com/wp-content/uploads/2017/01/Untitled-1-850x478$large.png"},
+            { "_id": "456", "widgetType": "HTML", "pageId": "321", "size":4, "text": 'A low-grade snowstorm will drop one to three inches of snow on the Greater Boston area Tuesday afternoon, causing a slippery ride home during evening rush hour. Snow broke out as early as 1 p.m. across western Massachusetts, and began in Boston just before the commute. There’s already two inches of snow on the ground in southern Massachusetts and Rhode Island, so expect that it will take you longer than usual to arrive home.'},
+            { "_id": "567", "widgetType": "HEADER", "pageId": "321", "size": 3, "text": "Dangerous storm could dump about a foot of snow in Boston"},
+            { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "90%",
+                "url": "https://www.youtube.com/embed/sVMPjg2lwuA" },
+            { "_id": "789", "widgetType": "HTML", "pageId": "321", "size":4, "text": "The crowds that streamed into Friends’ Marketplace in Orleans Saturday reminded grocer Brian Junkins of an equally busy time — but in a warmer, sunnier month. “For a few hours this morning, it felt like it was almost Fourth of July week,” Junkins said in a telephone interview. “We’ve basically done three-quarters of a day’s worth of sales in a few hours.” Junkins and his customers were in the unenviable position of having to prepare for the most treacherous conditions of 2017’s first major storm, which threatened to dump nearly 2 feet of snow on parts of Southeastern Massachusetts, the Cape, and the Islands."}
         ];
 
         this.findAllWidgets = findAllWidgets;

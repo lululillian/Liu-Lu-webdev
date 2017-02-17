@@ -20,95 +20,36 @@
 
 <!--Content-->
 <div class="container-fluid">
-    <div>
-        <div class="topic-distance">
-            <a class="pull-right margin-right" href="#/widget-heading">
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </a>
-            <a class="pull-right margin-right-components" href="#/widget-heading">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <label class="content-color-black margin-left mainTopic-fontsize">BOSTON SNOW STROM 2017</label>
-        </div>
-        <div class="topic-distance">
-            <a class="pull-right margin-right" href="#/page-edit">
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </a>
-            <a class="pull-right margin-right-components"  href="#/widget-heading">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <label for="topic1" class="content-color-black margin-left secondTopic-fontsize">
-                Snow will cause a slippery evening commute in Boston
-            </label>
-        </div>
-        <div class="topic-distance">
-            <a class="pull-right margin-right" href="#/widget-image">
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </a>
-            <a class="pull-right margin-right-components"  href="#/widget-image">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <img src="https://www.boston.com/wp-content/uploads/2017/01/Untitled-1-850x478$large.png"
-                 width="90%" height="100%" class="margin-left">
-            </img>
-        </div>
-        <div class="topic-distance">
-            <a class="pull-right margin-right" href="#/page-edit">
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </a>
-            <a class="pull-right margin-right-components"  href="#/page-edit">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <label id="Paragraph" class="content-color-black margin-left margin-right paragraph-fontsize">
-                A low-grade snowstorm will drop one to three inches of snow on the Greater Boston area Tuesday
-                afternoon, causing a slippery ride home during evening rush hour. Snow broke out as early as 1 p.m.
-                across western Massachusetts, and began in Boston just before the commute. There’s already two inches
-                of snow on the ground in southern Massachusetts and Rhode Island, so expect that it will take you longer
-                than usual to arrive home.
-            </label>
-        </div>
-        <div class="topic-distance">
-            <a class="pull-right margin-right" href="#/page-edit">
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </a>
-            <a class="pull-right margin-right-components"  href="#/widget-heading">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <label class="content-color-black margin-left secondTopic-fontsize">
-                Dangerous storm could dump about a foot of snow in Boston
-            </label>
-        </div>
-        <div class="topic-distance">
-            <a class="pull-right margin-right" href="widget-youtube.view.client.html">
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </a>
-            <a class="pull-right margin-right-components"  href="#/widget-youtube">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <iframe src="https://www.youtube.com/embed/sVMPjg2lwuA"
-                    height="400" width="90%" height="100%" class="margin-left">
-                <span class="glyphicon glyphicon-cog"></span>
-            </iframe>
-        </div>
-        <div class="topic-distance">
-            <a class="pull-right margin-right" href="#/page-edit">
-                 <span class="glyphicon glyphicon-align-justify"></span>
-            </a>
-            <a class="pull-right margin-right-components"  href="../../page/templates/page-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <label class="content-color-black margin-left margin-right paragraph-fontsize" style="width: 90%">
-                The crowds that streamed into Friends’ Marketplace in Orleans Saturday reminded grocer Brian Junkins of
-                an equally busy time — but in a warmer, sunnier month. “For a few hours this morning, it felt like it
-                was almost Fourth of July week,” Junkins said in a telephone interview. “We’ve basically done
-                three-quarters of a day’s worth of sales in a few hours.” Junkins and his customers were in the
-                unenviable position of having to prepare for the most treacherous conditions of 2017’s first major
-                storm, which threatened to dump nearly 2 feet of snow on parts of Southeastern Massachusetts, the Cape,
-                and the Islands.
-            </label>
+
+    <div ng-repeat = "widget in model.widgets">
+        <div ng-switch = "widget.widgetType">
+            <div class = "jga-toolbar">
+                <a>
+                    <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
+                </a>
+            </div>
+            <div ng-switch-when="HEADER">
+                <h1 ng-if="widget.size ==1">{{widget.text}}</h1>
+                <h2 ng-if="widget.size ==2">{{widget.text}}</h2>
+                <h3 ng-if="widget.size ==3">{{widget.text}}</h3>
+                <h4 ng-if="widget.size ==4">{{widget.text}}</h4>
+                <h5 ng-if="widget.size ==5">{{widget.text}}</h5>
+                <h6 ng-if="widget.size ==6">{{widget.text}}</h6>
+
+
+            </div>
+
+            <div ng-switch-when="IMAGE">
+                <image ng-src ="{{widget.url}}" width="90%" height="100%" class="margin-left"></image>
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                <iframe ng-src ="{{model.getYouTubeEmbedUrl(widget.url)}}" height="400" width="90%" height="100%" class="margin-left"></iframe>
+            </div>
+            <div ng-switch-when="HTML" style="width: 90%" class="content-color-black margin-left margin-right paragraph-fontsize">
+                {{widget.text}}
+            </div>
         </div>
     </div>
-</div>
 
 <!--Footer-->
 <nav class="navbar navbar-default navbar-fixed-bottom">
