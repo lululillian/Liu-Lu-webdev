@@ -78,6 +78,10 @@
                 templateUrl: 'views/widget/templates/widget-edit.view.client.html'
                 ,controller: "WidgetEditController",
                 controllerAs: "model"
+            })
+            // 13.
+            .when("/user/:uid/website/:wid/page/:pid/widget/getTemplate",{
+                templateUrl: 'views/widget/templates/'
             });
 
     }
