@@ -7,11 +7,6 @@
                 <span class="glyphicon glyphicon-chevron-left "></span>
             </a>
         </div>
-        <a href="#/page-list">
-            <div class="navbar-text pull-right margin-right">
-                <span class="glyphicon glyphicon-ok"></span>
-            </div>
-        </a>
         <div class="navbar-header">
             <a class="navbar-brand">Edit Page</a>
         </div>
@@ -22,17 +17,23 @@
 <div class="container-fluid">
     <label>Name</label>
     <input id="pageName"
+           ng-model = "model.page.name"
            type="text"
            class="form-control"
            placeholder="Blog Post"/>
     <label>Title</label>
     <input id="pageTitle"
+           ng-model = "model.page.description"
            type="text"
            class="form-control"
            placeholder="Page Title"/>
-    <a href="#/page-list">
-        <button class="btn btn-danger btn-block">Delete</button>
-    </a>
+
+    <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page"
+       ng-click = "model.update_Page(model.page)"
+       class="btn btn-primary btn-block">Update</a>
+    <a ng-click="model.delete_page()" class="btn btn-danger btn-block">Delete</a>
+
+
 </div>
 
 <!--Footer-->

@@ -24,11 +24,6 @@
         </div>
         <!--Right Header-->
         <div class="col-sm-8">
-            <div class="navbar-text pull-right">
-                <a class="content-color-white" href="#/user/{{model.userId}}/website/">
-                    <span class="glyphicon glyphicon-ok"></span>
-                </a>
-            </div>
             <div>
                 <a class="navbar-brand">
                     Edit Website
@@ -85,10 +80,13 @@
                   class="form-control"
                   id="website-description">{{model.website.name}}</textarea>
 
-        <a ng-click = "model.update(model.website)" class="btn btn-primary btn-block">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}"
+           ng-click = "model.update(model.website)"
+           class="btn btn-primary btn-block">
             Update
         </a>
-        <a ng-click="model.deleteWebsite()" class="btn btn-danger btn-block">
+        <a ng-click="model.deleteWebsite()"
+           class="btn btn-danger btn-block">
             Delete
         </a>
     </div>

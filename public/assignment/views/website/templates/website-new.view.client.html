@@ -69,9 +69,13 @@
             <label>Description</label>
             <textarea id="description"
                       ng-model = "model.website.description"
-                        type="text"
-                        class="form-control"
-                        placeholder="Here is your description"></textarea>
+                      type="text"
+                      class="form-control margin-bottom-18px"
+                      placeholder="Here is your description"></textarea>
+            <a ng-click = "model.createWeb(model.website);"
+               class="btn btn-primary btn-block ">
+                Create
+            </a>
         </div>
     </div>
 

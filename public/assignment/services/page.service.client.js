@@ -20,11 +20,10 @@
             }
         return api;
 
-
-
         // 1. createPage
         function createPage(websiteId, page) {
             page.websiteId = websiteId;
+            page._id = (new Date()).getTime();
             pages.push(page);
         }
 
@@ -53,7 +52,7 @@
         // 4. updatePage
         function updatePage(pageId, page)  {
             for(var p in pages) {
-                var pag = pages[w];
+                var pag = pages[p];
                 if( pag._id === pageId ) {
                     pages[p].name = page.name;
                     pages[p].description = page.description;
@@ -65,7 +64,7 @@
         // 5. deletePage
         function deletePage(pageId) {
             for(var p in pages) {
-                if(pages[w]._id === pageId) {
+                if(pages[p]._id === pageId) {
                     pages.splice(p, 1);
                 }
             }
