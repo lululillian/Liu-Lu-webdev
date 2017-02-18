@@ -3,11 +3,11 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="row container-fluid">
         <div class="navbar-text pull-left">
-            <a class="content-color-black margin-left"  href="#/website-list">
+            <a class="content-color-black margin-left"  href="#/user/{{model.userId}}/website">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
-        <a href="#/page-new">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
             <div class="navbar-text pull-right margin-right">
                 <span class="glyphicon glyphicon-plus"></span>
             </div>
@@ -20,48 +20,15 @@
 
 <!--Content-->
 <div class="container-fluid">
-    <div>
-        <div class="topic-distance">
-            <a href="widget-list">
-                <label class="content-color-blue margin-left">Blog Post</label>
+        <div ng-repeat="page in model.pages" class="list-group-item">
+            <a class="row content-color-black"
+               ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                {{page.name}}
             </a>
-            <a class="pull-right margin-right" href="page-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-        </div>
-        <div class="topic-distance">
-            <a href="#/widget-list">
-                <label class="content-color-blue margin-left">Blogs</label>
-            </a>
-            <a class="pull-right margin-right"  href="page-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
+            <a class="glyphicon glyphicon-cog pull-right"
+               ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
             </a>
         </div>
-        <div class="topic-distance">
-            <a href="#/widget-list">
-                <label class="content-color-blue margin-left">Home</label>
-            </a>
-            <a class="pull-right margin-right"  href="page-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-        </div>
-        <div class="topic-distance">
-            <a href="#/widget-list">
-                <label class="content-color-blue margin-left">About</label>
-            </a>
-            <a class="pull-right margin-right"  href="page-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-        </div>
-        <div class="topic-distance">
-            <a href="#/widget-list">
-                <label class="content-color-blue margin-left">Contact Us</label>
-            </a>
-            <a class="pull-right margin-right"  href="page-edit.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-        </div>
-    </div>
 </div>
 
 <!--Footer-->
