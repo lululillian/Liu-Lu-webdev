@@ -15,7 +15,8 @@
             "findPageByWebsiteId":findPageByWebsiteId,
             "findPageById": findPageById,
             "updatePage": updatePage,
-            "deletePage": deletePage
+            "deletePage": deletePage,
+            "findAllPagesForUser":findAllPagesForUser
             }
         return api;
 
@@ -68,6 +69,16 @@
                     pages.splice(p, 1);
                 }
             }
+        }
+
+        function findAllPagesForUser(websiteId) {
+            var set = [];
+            for(var p in pages) {
+                if(pages[p].websiteId === websiteId) {
+                    set.push(pages[p]);
+                }
+            }
+            return set;
         }
 
     }
