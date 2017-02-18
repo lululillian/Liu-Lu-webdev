@@ -5,7 +5,7 @@
 
     function WidgetListController($sce, $routeParams, WidgetService) {
         var vm = this;
-        vm.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
+        vm.doYouTrustUrl = doYouTrustUrl;
         vm.getTrustedHtml = getTrustedHtml;
         vm.getWidgetTemplateUrl = getWidgetTemplateUrl;
         vm.userId = $routeParams.uid;
@@ -22,11 +22,12 @@
             return $sce.trustAsHtml(html);
         }
 
-        function getYouTubeEmbedUrl(widgetUrl) {
-            var urlParts = widgetUrl.split('/');
-            var id = urlParts[urlParts.length - 1];
-            var url = "https://www.youtube.com/embed/"+id;
-            return $sce.trustAsResourceUrl(url);
+        function doYouTrustUrl(url) {
+            var baseUrl="https://www.youtube.com/embed/";
+            var urlParts = url.split('/');
+            var id=urlParts[urlParts.length - 1];
+            baseUrl += id;
+            return $sce.trustAsResourceUrl(baseUrl);
         }
     }
 })();
