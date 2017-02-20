@@ -8,6 +8,12 @@
             </a>
         </div>
         <a ng-click = "model.update_widget(model.widgetId,model.widget);"
+           ng-href = "#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
+            <div class="navbar-text pull-right margin-right">
+                <span class="glyphicon glyphicon-remove"></span>
+            </div>
+        </a>
+        <a ng-click = "model.update_widget(model.widgetId,model.widget);"
            ng-href = "#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
             <div class="navbar-text pull-right margin-right">
                 <span class="glyphicon glyphicon-ok"></span>
@@ -18,6 +24,7 @@
         </div>
     </div>
 </nav>
+
 
 
 <div class="container-fluid"
