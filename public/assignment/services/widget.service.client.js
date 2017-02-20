@@ -67,7 +67,8 @@
                     return wid;
                 }
             }
-            return null;
+            widgets.push(widget);
+            return widget;
         }
         // 5. deleteWidget
         function deleteWidget(widgetId) {

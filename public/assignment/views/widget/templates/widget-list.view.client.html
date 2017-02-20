@@ -23,15 +23,15 @@
 <div class="container-fluid">
 
     <div ng-repeat = "widget in model.widgets">
+        <div class = "jga-toolbar">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
+            </a>
+        </div>
         <div ng-switch = "widget.widgetType">
 
             <!--<ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>-->
             <div ng-switch-when="HEADING">
-                <div class = "jga-toolbar">
-                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-                        <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
-                    </a>
-                </div>
                 <div style="width: 90%">
                     <ng-include src="model.getWidgetTemplateUrl('HEADING');"></ng-include>
                 </div>
@@ -39,31 +39,16 @@
 
 
             <div ng-switch-when="IMAGE">
-                <div class = "jga-toolbar">
-                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-                        <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
-                    </a>
-                </div>
                 <ng-include src="model.getWidgetTemplateUrl('IMAGE');"></ng-include>
             </div>
 
             <div ng-switch-when="YOUTUBE">
-                <div class = "jga-toolbar">
-                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-                        <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
-                    </a>
-                </div>
-                <div style="width: 90%">
+                <div style="width: 90%;" class="height:800px">
                     <ng-include src="model.getWidgetTemplateUrl('YOUTUBE');"></ng-include>
                 </div>
             </div>
 
             <div ng-switch-when="HTML">
-                <div class = "jga-toolbar">
-                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-                        <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
-                    </a>
-                </div>
                 <div style="width: 90%">
                     <ng-include class="margin-left" src="model.getWidgetTemplateUrl('HTML');"></ng-include>
                 </div>
