@@ -30,9 +30,9 @@
         }
 
         // 1. createWidget
-        function createWidget(pageId, widget){
-            widget.pageId = pageId;
+        function createWidget(widget){
             widgets.push(widget);
+            console.log(widgets);
         }
 
         // 2. findWidgetsByPageId
