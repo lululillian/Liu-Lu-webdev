@@ -16,36 +16,36 @@
 8 silly mapToRegistry uri https://registry.npmjs.org/web-dev
 9 verbose request uri https://registry.npmjs.org/web-dev
 10 verbose request no auth needed
-11 info attempt registry request try #1 at 2:32:15 AM
-12 verbose request id 3ba5c1b9e4f3abce
+11 info attempt registry request try #1 at 3:02:19 AM
+12 verbose request id cf566f043f496901
 13 http request GET https://registry.npmjs.org/web-dev
 14 http 404 https://registry.npmjs.org/web-dev
 15 verbose headers { 'content-type': 'application/json',
 15 verbose headers   'cache-control': 'max-age=0',
 15 verbose headers   'content-length': '2',
 15 verbose headers   'accept-ranges': 'bytes',
-15 verbose headers   date: 'Mon, 20 Feb 2017 07:32:15 GMT',
+15 verbose headers   date: 'Mon, 20 Feb 2017 08:02:20 GMT',
 15 verbose headers   via: '1.1 varnish',
 15 verbose headers   age: '0',
 15 verbose headers   connection: 'keep-alive',
-15 verbose headers   'x-served-by': 'cache-bos8230-BOS',
+15 verbose headers   'x-served-by': 'cache-bos8228-BOS',
 15 verbose headers   'x-cache': 'MISS',
 15 verbose headers   'x-cache-hits': '0',
-15 verbose headers   'x-timer': 'S1487575935.149885,VS0,VE516',
+15 verbose headers   'x-timer': 'S1487577740.245827,VS0,VE515',
 15 verbose headers   vary: 'Accept-Encoding' }
 16 silly get cb [ 404,
 16 silly get   { 'content-type': 'application/json',
 16 silly get     'cache-control': 'max-age=0',
 16 silly get     'content-length': '2',
 16 silly get     'accept-ranges': 'bytes',
-16 silly get     date: 'Mon, 20 Feb 2017 07:32:15 GMT',
+16 silly get     date: 'Mon, 20 Feb 2017 08:02:20 GMT',
 16 silly get     via: '1.1 varnish',
 16 silly get     age: '0',
 16 silly get     connection: 'keep-alive',
-16 silly get     'x-served-by': 'cache-bos8230-BOS',
+16 silly get     'x-served-by': 'cache-bos8228-BOS',
 16 silly get     'x-cache': 'MISS',
 16 silly get     'x-cache-hits': '0',
-16 silly get     'x-timer': 'S1487575935.149885,VS0,VE516',
+16 silly get     'x-timer': 'S1487577740.245827,VS0,VE515',
 16 silly get     vary: 'Accept-Encoding' } ]
 17 error owner ls Couldn't get owner data web-dev
 18 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/web-dev
