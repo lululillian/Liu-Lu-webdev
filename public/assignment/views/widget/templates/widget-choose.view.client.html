@@ -3,7 +3,8 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="row container-fluid">
         <div class="navbar-text pull-left">
-            <a class="content-color-black margin-left" href="#/widget-list">
+            <a class="content-color-black margin-left"
+               ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
@@ -15,44 +16,12 @@
 
 <!--Content-->
 <div class="container-fluid">
-    <div>
-        <div class="topic-distance">
-            <a href="#/widget-heading">
-                <label class="content-color-blue margin-left">Header</label>
-            </a>
-        </div>
-        <div class="topic-distance">
-            <label class="content-color-blue margin-left">Label</label>
-        </div>
-        <div class="topic-distance">
-            <label class="content-color-blue margin-left">HTML</label>
-        </div>
-        <div class="topic-distance">
-            <label class="content-color-blue margin-left">Text Input</label>
-        </div>
-        <div class="topic-distance">
-            <label class="content-color-blue margin-left">Link</label>
-        </div>
-        <div class="topic-distance">
-            <label class="content-color-blue margin-left">Button</label>
-        </div>
-        <div class="topic-distance">
-            <a href="#/widget-image">
-                <label class="content-color-blue margin-left">Image</label>
-            </a>
-        </div>
-        <div class="topic-distance">
-            <a href="#/widget-youtube">
-                <label class="content-color-blue margin-left">YouTube</label>
-            </a>
-        </div>
-        <div class="topic-distance">
-            <label class="content-color-blue margin-left">Data Table</label>
-        </div>
-        <div class="topic-distance">
-            <label class="content-color-blue margin-left">Repeater</label>
-        </div>
-    </div>
+    <ul class="list-group">
+        <a class="list-group-item" ng-repeat="(type, attrs) in model.types"
+           ng-click="model.newWidget(type);">
+            <li>{{widget.widgetType}}</li>
+        </a>
+    </ul>
 </div>
 
 <!--Footer-->

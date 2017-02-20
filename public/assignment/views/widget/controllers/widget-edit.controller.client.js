@@ -10,7 +10,7 @@
         vm.pageId = $routeParams.pid;
         vm.widgetId = $routeParams.wgid;
         vm.getEditorTemplateUrl = getEditorTemplateUrl;
-
+        vm.update_widget = WidgetService.updateWidget;
         function init() {
             vm.widget = WidgetService.findWidgetById(vm.widgetId);
         }

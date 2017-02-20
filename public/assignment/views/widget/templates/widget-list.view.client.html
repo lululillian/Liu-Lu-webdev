@@ -3,7 +3,8 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="row container-fluid">
         <div class="navbar-text pull-left">
-            <a class="content-color-black margin-left"  ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/">
+            <a class="content-color-black margin-left"
+               ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
@@ -27,9 +28,8 @@
             <!--<ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>-->
             <div ng-switch-when="HEADING">
                 <div class = "jga-toolbar">
-                    <a>
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                         <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
-
                     </a>
                 </div>
                 <div style="width: 90%">
@@ -49,7 +49,7 @@
 
             <div ng-switch-when="YOUTUBE">
                 <div class = "jga-toolbar">
-                    <a>
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                         <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
                     </a>
                 </div>
@@ -60,7 +60,7 @@
 
             <div ng-switch-when="HTML">
                 <div class = "jga-toolbar">
-                    <a>
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                         <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
                     </a>
                 </div>

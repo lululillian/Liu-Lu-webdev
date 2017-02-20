@@ -60,17 +60,16 @@
             for(var w in widgets) {
                 var wid = widgets[w];
                 if( wid._id === widgetId ) {
-                    widgets[w].widgetType = widget.widgetType;
-                    widgets[w].size = widget.size;
-                    widgets[w].text = widget.text;
-                    widgets[w].width = widget.width;
-                    widgets[w].url = widget.url;
+                    if(widget.size != undefined)widgets[w].size = widget.size;
+                    if(widget.text!=undefined)widgets[w].text = widget.text;
+                    if(widget.width != undefined)widgets[w].width = widget.width;
+                    if(widget.url != undefined)widgets[w].url = widget.url;
                     return wid;
                 }
             }
             return null;
         }
-        // 5.
+        // 5. deleteWidget
         function deleteWidget(widgetId) {
             for(var w in widgets) {
                 if(widgets[w]._id === widgetId) {
