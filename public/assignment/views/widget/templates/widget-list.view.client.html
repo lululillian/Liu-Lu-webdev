@@ -26,43 +26,47 @@
 
             <!--<ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>-->
             <div ng-switch-when="HEADING">
-                <ng-include src="model.getWidgetTemplateUrl('HEADING');"></ng-include>
                 <div class = "jga-toolbar">
                     <a>
                         <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
 
                     </a>
+                </div>
+                <div style="width: 90%">
+                    <ng-include src="model.getWidgetTemplateUrl('HEADING');"></ng-include>
                 </div>
             </div>
 
 
             <div ng-switch-when="IMAGE">
-                <ng-include src="model.getWidgetTemplateUrl('IMAGE');"></ng-include>
                 <div class = "jga-toolbar">
                     <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                         <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
                     </a>
                 </div>
+                <ng-include src="model.getWidgetTemplateUrl('IMAGE');"></ng-include>
             </div>
 
             <div ng-switch-when="YOUTUBE">
-                <ng-include src="model.getWidgetTemplateUrl('YOUTUBE');"></ng-include>
                 <div class = "jga-toolbar">
                     <a>
                         <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
                     </a>
                 </div>
-
+                <div style="width: 90%">
+                    <ng-include src="model.getWidgetTemplateUrl('YOUTUBE');"></ng-include>
+                </div>
             </div>
 
             <div ng-switch-when="HTML">
-                <ng-include src="model.getWidgetTemplateUrl('HTML');"></ng-include>
                 <div class = "jga-toolbar">
                     <a>
                         <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
                     </a>
                 </div>
-                <p style="width: 90%" class="margin-left">{{widget.text}}</p>
+                <div style="width: 90%">
+                    <ng-include class="margin-left" src="model.getWidgetTemplateUrl('HTML');"></ng-include>
+                </div>
             </div>
 
         </div>
