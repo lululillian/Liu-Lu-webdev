@@ -26,48 +26,37 @@
 
             <!--<ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>-->
             <div ng-switch-when="HEADING">
-                <ng-include ng-src="{{model.getWidgetTemplateUrl('HEADING')}}"></ng-include>
+                <ng-include src="model.getWidgetTemplateUrl('HEADING');"></ng-include>
                 <div class = "jga-toolbar">
                     <a>
                         <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
 
                     </a>
                 </div>
-                <div ng-switch-when="HEADING">
-                    <h1 class="margin-left">{{widget.text}}</h1>
-                    <h1 ng-if="widget.size ==1">{{widget.text}}</h1>
-                    <h2 ng-if="widget.size ==2">{{widget.text}}</h2>
-                    <h3 ng-if="widget.size ==3">{{widget.text}}</h3>
-                    <h4 ng-if="widget.size ==4">{{widget.text}}</h4>
-                    <h5 ng-if="widget.size ==5">{{widget.text}}</h5>
-                    <h6 ng-if="widget.size ==6">{{widget.text}}</h6>
-                </div>
             </div>
 
+
             <div ng-switch-when="IMAGE">
-                <ng-include ng-src="{{model.getWidgetTemplateUrl(IMAGE)}}" />
+                <ng-include src="model.getWidgetTemplateUrl('IMAGE');"></ng-include>
                 <div class = "jga-toolbar">
                     <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                         <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
-
                     </a>
                 </div>
-                <img ng-src ="{{widget.url}}" width="90%" height="100%" class="margin-left"></img>
             </div>
 
             <div ng-switch-when="YOUTUBE">
-                <ng-include src="'views/widget/templates/widget-IMAGE.view.client.html'"/>
+                <ng-include src="model.getWidgetTemplateUrl('YOUTUBE');"></ng-include>
                 <div class = "jga-toolbar">
                     <a>
                         <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
                     </a>
                 </div>
-                <iframe ng-src ="{{model.doYouTrustUrl(widget.url)}}"
-                        height="400" width="90%" height="100%" class="margin-left"></iframe>
+
             </div>
 
             <div ng-switch-when="HTML">
-                <ng-include ng-src="{{model.getWidgetTemplateUrl(HTML)}}" />
+                <ng-include src="model.getWidgetTemplateUrl('HTML');"></ng-include>
                 <div class = "jga-toolbar">
                     <a>
                         <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
@@ -75,6 +64,7 @@
                 </div>
                 <p style="width: 90%" class="margin-left">{{widget.text}}</p>
             </div>
+
         </div>
     </div>
 </div>
