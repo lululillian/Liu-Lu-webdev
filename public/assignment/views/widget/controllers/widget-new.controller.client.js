@@ -20,7 +20,6 @@
             var newWidget = {};
             newWidget._id = newWidgetID.toString();
             newWidget.widgetType = type;
-            newWidget.pageId= vm.pageId;
             WidgetService.createWidget(newWidget);
             var URL ="/user/" +
                 vm.userId + "/website/"+

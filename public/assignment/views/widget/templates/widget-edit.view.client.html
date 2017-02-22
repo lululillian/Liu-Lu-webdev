@@ -3,17 +3,17 @@
     <div class="row container-fluid">
         <div class="navbar-text pull-left">
             <a class="content-color-black margin-left"
+
                ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                 <span class="glyphicon glyphicon-chevron-left "></span>
             </a>
         </div>
-        <a ng-click = "model.update_widget(model.widgetId,model.widget);"
-           ng-href = "#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
+        <a ng-href = "#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
             <div class="navbar-text pull-right margin-right">
                 <span class="glyphicon glyphicon-remove"></span>
             </div>
         </a>
-        <a ng-click = "model.update_widget(model.widgetId,model.widget);"
+        <a ng-click = "model.update_widget(model.widgetId,model.widget,model.pageId);"
            ng-href = "#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
             <div class="navbar-text pull-right margin-right">
                 <span class="glyphicon glyphicon-ok"></span>

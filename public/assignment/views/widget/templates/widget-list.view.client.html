@@ -23,11 +23,14 @@
 <div class="container-fluid">
 
     <div ng-repeat = "widget in model.widgets">
+        <div ng-if = "widget.pageId != undefined">
+
         <div class = "jga-toolbar">
             <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                 <span class="glyphicon glyphicon-cog pull-right margin-right"></span>
             </a>
         </div>
+
         <div ng-switch = "widget.widgetType">
 
             <!--<ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>-->
@@ -55,6 +58,7 @@
             </div>
 
         </div>
+
     </div>
 </div>
 
