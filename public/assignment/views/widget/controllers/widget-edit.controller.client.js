@@ -11,8 +11,15 @@
         vm.widgetId = $routeParams.wgid;
         vm.getEditorTemplateUrl = getEditorTemplateUrl;
         vm.update_widget = WidgetService.updateWidget;
+
         function init() {
-            vm.widget = WidgetService.findWidgetById(vm.widgetId);
+            WidgetService.findWidgetById(vm.widgetId)
+                .success(function (widget) {
+                    vm.widget = widget;
+                })
+                .error(function (widgets) {
+                    vm.error = 'widget not found';
+                });
         }
         init();
 

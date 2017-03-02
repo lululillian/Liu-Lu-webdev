@@ -5,20 +5,24 @@
 
     function registerController(UserService, $location) {
         var vm = this;
-        vm.register = register;
+        vm.registerUser = registerUser;
 
-        function register(user,confirm) {
-            if(confirm != user.password) {
-                alert("Password not match!");
-                return;
-            }
-            var registerUser = UserService.createUser(user);
-            if(registerUser != null) {
-                $location.url('/profile/' + registerUser._id);
-                alert("Successful Register. Now redirect to profile page.")
-            } else {
-                vm.error = 'user not found';
-            }
+        function registerUser(user) {
+            UserService
+                .findUserByUsername(user.username)
+                .success(function (user) {
+                    vm.error = "sorry that username is taken"
+                })
+                .error(function(){
+                    UserService
+                        .createUser(user)
+                        .success(function(user){
+                            $location.url('/profile/' + user._id);
+                        })
+                        .error(function () {
+                            vm.error = 'sorry could not register';
+                        });
+                });
         }
     }
 })();

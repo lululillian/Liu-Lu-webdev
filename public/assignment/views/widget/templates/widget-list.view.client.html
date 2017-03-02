@@ -20,11 +20,9 @@
 </nav>
 
 <!--Content-->
-<div class="container-fluid">
-
+<div class="container-fluid ui-sortable" id="widget-list">
     <div ng-repeat = "widget in model.widgets">
         <div ng-if = "widget.pageId != undefined">
-
         <div class = "jga-toolbar">
             <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                 <span class="glyphicon glyphicon-cog pull-right margin-right"></span>

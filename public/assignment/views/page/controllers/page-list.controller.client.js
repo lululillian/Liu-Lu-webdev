@@ -7,10 +7,16 @@
     function PageListController($routeParams, $location, PageService) {
         var userId = $routeParams.uid;
         var websiteId = $routeParams.wid;
-        var pages = PageService.findPageByWebsiteId(websiteId);
+        PageService.findAllPagesForWebsite(websiteId)
+            .success(function(pages){
+                vm.pages = pages;
+            })
+            .error(function(pages) {
+                vm.error = 'pages not found';
+            });
 
         var vm = this;
-        vm.pages = pages;
+        //vm.pages = pages;
         vm.websiteId = websiteId;
         vm.userId = userId;
 

@@ -9,6 +9,7 @@
 
         function init() {
             vm.websites = WebsiteService.findAllWebsitesForUser(vm.userId);
+
             vm.createWeb = function  (website) {
                 WebsiteService.createWebsite(vm.userId, website);
                 //vm.websites = WebsiteService.findAllWebsitesForUser(vm.userId);

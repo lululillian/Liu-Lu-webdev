@@ -9,7 +9,16 @@
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
-        vm.widgets = WidgetService.findAllWidgets(vm.pageId);
+        //vm.widgets = WidgetService.findAllWidgetsForPage(vm.pageId);
+        WidgetService.findAllWidgetsForPage(vm.pageId)
+            .success(function(widgets){
+                vm.widgets = widgets;
+            })
+            .error(function(widgets) {
+                vm.error = 'widget not found';
+            });
+
+
         vm.types = ["HTML","IMAGE","YOUTUBE","HEADING"];
         vm.getEditorURL =function (type) {
             return 'views/widget/templates/editors/widget-' + type + '-editor.view.client.html';

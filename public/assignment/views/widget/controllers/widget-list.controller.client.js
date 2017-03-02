@@ -5,27 +5,38 @@
 
     function WidgetListController($sce, $routeParams, WidgetService) {
         var vm = this;
-
+        vm.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
+        vm.getTrustedHtml = getTrustedHtml;
+        vm.getWidgetTemplateUrl = getWidgetTemplateUrl;
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
-        vm.widgets = WidgetService.findAllWidgets(vm.pageId);
+        //vm.widgets = WidgetService.findAllWidgets(vm.pageId);
 
-        vm.getWidgetTemplateUrl = function (widgetType) {
+        WidgetService.findAllWidgetsForPage(vm.pageId)
+            .success(function(widgets){
+                vm.widgets = widgets;
+            })
+            .error(function(widgets) {
+                vm.error = 'widget not found';
+            });
+        //
+        $('#widget-list').sortable();
+
+        function getWidgetTemplateUrl(widgetType) {
             var url = 'views/widget/templates/widget-'+widgetType+'.view.client.html';
             return url;
         }
 
-        vm.getTrustedHtml  = function (html) {
+        function getTrustedHtml(html) {
             return $sce.trustAsHtml(html);
         }
 
-        vm.getYouTubeEmbedUrl = function (url) {
-            var baseUrl="https://www.youtube.com/embed/";
-            var urlParts = url.split('=');
-            var id=urlParts[urlParts.length - 1];
-            baseUrl += id;
-            return $sce.trustAsResourceUrl(baseUrl);
+        function getYouTubeEmbedUrl(widgetUrl) {
+            var urlParts = widgetUrl.split('/');
+            var id = urlParts[urlParts.length - 1];
+            var url = "https://www.youtube.com/embed/"+id;
+            return $sce.trustAsResourceUrl(url);
         }
     }
 })();

@@ -5,13 +5,19 @@
 
     function WebsiteListController($routeParams, $location, WebsiteService) {
         var userId = $routeParams.uid;
-        var websites = WebsiteService.findAllWebsitesForUser(userId);
         var vm = this;
-        vm.websites = websites;
-        vm.userId = userId;
+        WebsiteService.findAllWebsitesForUser(userId)
+            .success(function(websites){
+                vm.websites = websites;
+            })
+            .error(function(websites) {
+                vm.error = 'websites not found';
+            });
 
-        vm.goback = function(){
-            $location.url('/profile/' + vm.userId);
-        }
+
+        vm.userId = userId;
+        console.log(vm.websites);
+        console.log(WebsiteService.findAllWebsitesForUser(userId));
+
     }
 })();
