@@ -11,8 +11,6 @@
         vm.widgetId = $routeParams.wgid;
         vm.getEditorTemplateUrl = getEditorTemplateUrl;
         vm.update_widget = WidgetService.updateWidget;
-
-        function init() {
             WidgetService.findWidgetById(vm.widgetId)
                 .success(function (widget) {
                     vm.widget = widget;
@@ -20,11 +18,10 @@
                 .error(function (widgets) {
                     vm.error = 'widget not found';
                 });
-        }
-        init();
 
-        function getEditorTemplateUrl(type) {
-            return 'views/widget/templates/editors/widget-'+type+'-editor.view.client.html';
+        function getEditorTemplateUrl() {
+            if(vm.widget == undefined) return;
+            return 'views/widget/templates/editors/widget-'+vm.widget.widgetType+'-editor.view.client.html';
         }
     }
 })();

@@ -11,7 +11,7 @@ module.exports = function (app) {
     var multer = require('multer'); // npm install multer --save
     var upload = multer({ dest: __dirname+'/../../public/uploads' });
 
-    app.post ("/public/upload", upload.single('myFile'), uploadImage);
+    app.post ("/api/upload", upload.single('myFile'), uploadImage);
 
     function uploadImage(req, res) {
 
@@ -25,6 +25,17 @@ module.exports = function (app) {
         var destination = myFile.destination;  // folder where file is saved to
         var size = myFile.size;
         var mimetype      = myFile.mimetype;
+
+
+        console.log(widgetId);
+        console.log(width);
+        console.log(myFile);
+        console.log(originalname);
+        console.log(filename);
+        console.log(path);
+        console.log(destination);
+        console.log(size);
+        console.log(mimetype);
     }
 
 
