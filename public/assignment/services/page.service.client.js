@@ -14,8 +14,8 @@
             }
         return api;
 
-        function createPage(websiteId) {
-            return $http.post("/api/website/"+websiteId+"/page");
+        function createPage(websiteId,page) {
+            return $http.post("/api/website/"+websiteId+"/page",page);
         }
 
         function findAllPagesForWebsite(websiteId) {

@@ -13,8 +13,8 @@
         };
         return api;
 
-        function createWebsite(userId) {
-            return $http.post("/api/user/"+userId+"/website");
+        function createWebsite(userId,website) {
+            return $http.post("/api/user/"+userId+"/website",website);
         }
 
         function findAllWebsitesForUser(userId) {

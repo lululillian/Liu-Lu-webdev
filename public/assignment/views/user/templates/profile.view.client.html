@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
             <div class="navbar-text pull-right"  >
-                <span class="glyphicon glyphicon-ok" ng-click="model.update(model.user);"></span>
+                <span class="glyphicon glyphicon-ok" ng-click="model.updateUser(model.user);"></span>
             </div>
         <div class="navbar-header">
             <a class="navbar-brand">Profile</a>
@@ -37,7 +37,7 @@
                placeholder="jannunzi@gmail.com">
     </div>
     <div class="margin-bottom-18px">
-        <lable for="first"><strong>Fist Name</strong></lable>
+        <lable for="first"><strong>First Name</strong></lable>
         <input id="firstname"
                ng-model="model.user.firstName"
                type="text"

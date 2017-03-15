@@ -25,8 +25,14 @@ app.use(express.static(__dirname + '/public'));
 require ("./test/app.js")(app);
 require("./todo/app")(app);
 require("./blog/app")(app);
+require('./experiments/upload/app')(app);
+// require('./experiments/mongoose/app')(app);
 
 // require("./assignment-wed/app.js")(app);
+
+//require("./lectures/mongo/movies")(app);
+// require('./lectures-wed/mongo/movies')(app);
+require('./experiments/mongoose/projects/app')(app);
 
 var assignment = require("./assignment/app.js");
 assignment(app);

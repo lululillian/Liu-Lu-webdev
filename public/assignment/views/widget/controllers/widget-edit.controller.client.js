@@ -21,7 +21,10 @@
 
         function getEditorTemplateUrl() {
             if(vm.widget == undefined) return;
-            return 'views/widget/templates/editors/widget-'+vm.widget.widgetType+'-editor.view.client.html';
+            return 'views/widget/templates/editors/widget-'+vm.widget.type+'-editor.view.client.html';
         }
+
+
+
     }
 })();

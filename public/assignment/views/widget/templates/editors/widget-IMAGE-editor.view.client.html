@@ -1,4 +1,13 @@
 <h1>IMAGE Editor</h1>
+<label>Name</label>
+<input ng-model="model.widget.name" class="form-control"/>
+
+<label>Text</label>
+<input ng-model="model.widget.text" class="form-control"/>
+
+<label>Width</label>
+<input ng-model="model.widget.width" class="form-control"/>
+
 
 <label>URL</label>
 <input ng-model="model.widget.url" class="form-control"/>
@@ -8,4 +17,5 @@
        <input name="width" value="{{model.widget.width}}" style="display: none"/>
        <input name="widgetId" value="{{model.widget._id}}" style="display: none"/>
        <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
+       <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/flickr" class="btn btn-block btn-primary">Search</a>
 </form>

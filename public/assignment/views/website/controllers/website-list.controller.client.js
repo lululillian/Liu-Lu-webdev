@@ -17,7 +17,6 @@
 
         vm.userId = userId;
         console.log(vm.websites);
-        console.log(WebsiteService.findAllWebsitesForUser(userId));
 
     }
 })();

@@ -3,17 +3,24 @@
         .module("WebAppMaker")
         .controller("profileController", profileController);
 
-    function profileController($routeParams, $location, UserService) {
+    function profileController($routeParams, $location, UserService,$http) {
         var vm = this;
         var userId = $routeParams['uid'];
         vm.unregisterUser = unregisterUser;
+        vm.updateUser = updateUser;
+        init();
 
         function init() {
             UserService
                 .findUserById(userId)
                 .success(renderUser);
         }
-        init();
+
+        function updateUser(user) {
+            $http
+                .put('/api/user/' + userId, user)
+                .success(function(){console.log("ff")});
+        }
 
         function unregisterUser(user) {
             var answer = confirm("Are you sure?");
@@ -34,7 +41,7 @@
             vm.user = user;
             console.log(user);
         }
-
+/*
         vm.update = function (newUser) {
             UserService
                 .updateUser(userId, newUser)
@@ -45,5 +52,6 @@
                     vm.error = "unable to update user";
                 });
         };
+        */
     }
 })();

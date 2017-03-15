@@ -6,13 +6,13 @@
     function WebsiteNewController($routeParams, $location, WebsiteService) {
         var vm = this;
         vm.userId = $routeParams.uid;
-
+        vm.website = {};
         function init() {
-            vm.websites = WebsiteService.findAllWebsitesForUser(vm.userId);
 
             vm.createWeb = function  (website) {
-                WebsiteService.createWebsite(vm.userId, website);
-                //vm.websites = WebsiteService.findAllWebsitesForUser(vm.userId);
+                console.log(website);
+                website._user = vm.userId;
+                WebsiteService.createWebsite(vm.userId,website);
                 $location.url("/user/"+vm.userId+"/website");
             };
         }

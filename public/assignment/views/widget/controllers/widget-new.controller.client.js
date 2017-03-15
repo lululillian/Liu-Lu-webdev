@@ -19,21 +19,25 @@
             });
 
 
-        vm.types = ["HTML","IMAGE","YOUTUBE","HEADING"];
+        vm.types = ["HTML","IMAGE","YOUTUBE","HEADING","TEXT"];
         vm.getEditorURL =function (type) {
             return 'views/widget/templates/editors/widget-' + type + '-editor.view.client.html';
         }
         vm.createWidget =  function (type){
-            console.log(type);
-            var newWidgetID = new Date().getTime();
             var newWidget = {};
-            newWidget._id = newWidgetID.toString();
-            newWidget.widgetType = type;
-            WidgetService.createWidget(newWidget);
-            var URL ="/user/" +
-                vm.userId + "/website/"+
-                vm.websiteId+"/page/"+vm.pageId+"/widget/"+ newWidgetID;
-                $location.url(URL);
+            newWidget.type = type;
+            var response;
+            WidgetService.createWidget(vm.pageId,newWidget)
+                .success(function(widget){
+                    response = widget;
+                    var URL ="/user/" +
+                        vm.userId + "/website/"+
+                        vm.websiteId+"/page/"+vm.pageId+"/widget/"+ response._id;
+                    console.log(URL);
+                    $location.url(URL);
+                })
+                .error(function(error){console.log(error);});
+
 
         }
 

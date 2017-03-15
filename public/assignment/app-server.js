@@ -7,4 +7,5 @@ module.exports = function(app) {
     require("./services/website.service.client.js")(app, model);
     require("./services/page.service.client.js")(app, model);
     require("./services/widget.service.client.js")(app, model);
+    require("./services/flickr.service.client.js")(app, model);
 };

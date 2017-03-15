@@ -3,10 +3,23 @@
         .module("WebAppMaker")
         .controller("registerController", registerController);
 
-    function registerController(UserService, $location) {
-        var vm = this;
-        vm.registerUser = registerUser;
 
+    function registerController($http,$location) {
+        var vm = this;
+        vm.createUser = createUser;
+
+        function createUser(user) {
+            $http
+                .post('/api/user', user)
+                .success(function(newUser){
+                    $location.url('/profile/' + newUser._id);
+                });
+        }
+
+        function findUserIdByUsername(username){
+
+        }
+   /*
         function registerUser(user) {
             UserService
                 .findUserByUsername(user.username)
@@ -24,5 +37,6 @@
                         });
                 });
         }
+        */
     }
 })();

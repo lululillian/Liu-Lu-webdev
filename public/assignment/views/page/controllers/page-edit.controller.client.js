@@ -7,12 +7,11 @@
         var vm = this;
         var userId = $routeParams.uid;
         var websiteId = $routeParams.wid;
-        var pages = PageService.findPageByWebsiteId(websiteId);
         vm.pageId = $routeParams.pid;
-        vm.page = PageService.findPageById(vm.pageId);
+        PageService.findPageById(vm.pageId)
+            .success(function(page){console.log(page);vm.page = page;});
         vm.websiteId = websiteId;
         vm.userId = userId;
-        vm.pages =pages;
 
         vm.goback = function () {
             $location.url('/profile/' + vm.userId);

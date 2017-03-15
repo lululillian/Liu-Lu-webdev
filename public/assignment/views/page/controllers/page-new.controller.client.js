@@ -9,8 +9,8 @@
         vm.websiteId = $routeParams.wid;
 
         function init() {
-            vm.pages = PageService.findAllPagesForUser(vm.websiteId);
             vm.create_page = function  (page) {
+                page._website = vm.websiteId;
                 PageService.createPage(vm.websiteId, page);
                 $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
             };
