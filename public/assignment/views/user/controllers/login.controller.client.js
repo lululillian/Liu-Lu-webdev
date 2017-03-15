@@ -16,11 +16,14 @@
                         $location.url('/profile/' + loginUser._id);
                     } else {
                         vm.error = 'user not found';
+                        alert('Failed Login. Try Again!');
                     }
                 })
                 .error(function(err) {
                     vm.error = 'user not found';
+                    alert('Failed Login. Try Again!');
                 });
         }
     }
 })();
+

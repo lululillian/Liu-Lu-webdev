@@ -5,7 +5,7 @@
 
     function profileController($routeParams, $location, UserService,$http) {
         var vm = this;
-        var userId = $routeParams['uid'];
+        var userId = $routeParams.uid;
         vm.unregisterUser = unregisterUser;
         vm.updateUser = updateUser;
         init();
@@ -19,12 +19,11 @@
         function updateUser(user) {
             $http
                 .put('/api/user/' + userId, user)
-                .success(function(){console.log("ff")});
+                .success(function(){alert('Successful Update!')});
         }
 
         function unregisterUser(user) {
             var answer = confirm("Are you sure?");
-            console.log(answer);
             if(answer) {
                 UserService
                     .deleteUser(user._id)

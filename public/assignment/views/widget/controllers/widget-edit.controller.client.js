@@ -11,13 +11,19 @@
         vm.widgetId = $routeParams.wgid;
         vm.getEditorTemplateUrl = getEditorTemplateUrl;
         vm.update_widget = WidgetService.updateWidget;
-            WidgetService.findWidgetById(vm.widgetId)
-                .success(function (widget) {
-                    vm.widget = widget;
-                })
-                .error(function (widgets) {
-                    vm.error = 'widget not found';
-                });
+        WidgetService.findWidgetById(vm.widgetId)
+            .success(function (widget) {
+                vm.widget = widget;
+            })
+            .error(function (widgets) {
+                vm.error = 'widget not found';
+            });
+
+
+        vm.delete = WidgetService.deleteWidget;
+
+
+
 
         function getEditorTemplateUrl() {
             if(vm.widget == undefined) return;

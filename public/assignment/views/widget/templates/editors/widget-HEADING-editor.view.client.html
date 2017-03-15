@@ -6,7 +6,7 @@
 <input ng-model="model.widget.text" class="form-control"/>
 
 <label>Size</label>
-<select ng-model = "model.widget.size"class="form-control">
+<select ng-model = "model.widget.size"class="form-control margin-bottom-18px">
     <option>1</option>
     <option>2</option>
     <option>3</option>
@@ -14,3 +14,7 @@
     <option>5</option>
     <option>6</option>
 </select>
+
+<a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/"
+   ng-click = "model.delete(model.widgetId)"
+   class="btn btn-danger btn-block">Delete Heading</a>
