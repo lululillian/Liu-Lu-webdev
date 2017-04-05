@@ -19,8 +19,23 @@
 
 
         function login(user) {
-            console.log(user);
-            if(user  && user.username && user.password){
+            var error = false;
+
+            if(user == undefined || user.username == null||user.username == ""){
+                var q=  document.getElementById("q");
+                q.hidden = false;
+                error = true;
+            }
+            if(user == undefined || user.password == null||user.password == ""){
+                var p=  document.getElementById("p");
+                p.hidden = false;
+                error = true;
+            }
+            if(error == true){
+                var e=  document.getElementById("e");
+                e.hidden = false;
+            }
+            else{
                 UserService
                     .login(user)
                     .then(
@@ -30,20 +45,6 @@
                             $location.url("/profile/"+user._id);
                         })
             }
-            else{
-                var e=  document.getElementById("e");
-                e.hidden = false;
-            }
-            if(user == undefined || user.username == null||user.username == ""){
-                var q=  document.getElementById("q");
-                q.hidden = false;
-            }
-            if(user == undefined || user.password == null||user.password == ""){
-                var p=  document.getElementById("p");
-                p.hidden = false;
-            }
-
-
 
         }
 
