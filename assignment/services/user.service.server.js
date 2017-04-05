@@ -43,7 +43,7 @@ module.exports = function (app,userModel) {
     var facebookConfig = {
         clientID     : 204772693193270,
         clientSecret : "5988b6517dd913035dc5dd32ed34f5cc",
-        callbackURL  : "http://localhost:3000/auth/facebook/callback"
+        callbackURL  : "https://lulu-webdev.herokuapp.com/auth/facebook/callback"
     };
     app.post ('/api/register', register);
 
