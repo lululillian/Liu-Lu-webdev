@@ -8,6 +8,11 @@
         var userId = $routeParams.uid;
         var websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
+        vm.nameError = nameError;
+        function nameError(){
+            var q=  document.getElementById("q");
+            q.hidden = true;
+        }
         PageService.findPageById(vm.pageId)
             .success(function(page){console.log(page);vm.page = page;});
         vm.websiteId = websiteId;
@@ -17,7 +22,19 @@
             $location.url('/profile/' + vm.userId);
         }
         vm.update_Page = function (page) {
-            PageService.updatePage(vm.pageId, page);
+            var name = document.getElementById("pageName").value;
+            console.log(name.length);
+            if( name!=null &&name.length >0){
+                PageService.updatePage(vm.pageId, page);
+                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
+            }
+            else{
+                var q=  document.getElementById("q");
+                q.hidden = false;
+                var e=  document.getElementById("e");
+                e.hidden = false;
+            }
+
         }
 
         vm.delete_page = function (){

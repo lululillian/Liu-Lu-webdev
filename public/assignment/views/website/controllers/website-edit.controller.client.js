@@ -8,6 +8,12 @@
         vm.userId = $routeParams.uid;
         vm.websiteId = $routeParams.wid;
         vm.deleteWebsite = deleteWebsite;
+        vm.nameError = nameError;
+        function nameError(){
+            var q=  document.getElementById("q");
+            q.hidden = true;
+        }
+
         function init() {
             WebsiteService.findWebsiteById(vm.websiteId).
                             success(function(newWebsite){
@@ -15,8 +21,18 @@
             });
 
             vm.update = function(website) {
-                WebsiteService.updateWebsite(vm.websiteId,website);
-                $location.url("/user/"+vm.userId+"/website");
+                if(website != undefined && website.name!=undefined &&website.name !=""){
+
+                    WebsiteService.updateWebsite(vm.websiteId,website);
+                    $location.url("/user/"+vm.userId+"/website");
+                }
+                else{
+                    var q=  document.getElementById("q");
+                    q.hidden = false;
+                    var e=  document.getElementById("e");
+                    e.hidden = false;
+                }
+
             }
         }
         init();

@@ -68,12 +68,17 @@
             Your website has been created
             <span class="glyphicon glyphicon-remove pull-right"></span>
         </div>
-
+        <div id = "e" class="alert alert-danger" hidden>
+            Update failed
+        </div>
         <label for="website-name">Website Name</label>
         <input ng-model="model.website.name" placeholder="Website Name"
                value="Facebook"
+               ng-change = "model.nameError()"
+
                class="form-control"
                id="website-name"/>
+        <p id = "q" hidden >Name is required</p>
 
         <label for="website-description">Website Description</label>
         <textarea ng-model="model.website.description" placeholder="Website Description"

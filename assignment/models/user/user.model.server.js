@@ -7,16 +7,19 @@ module.exports = function (app) {
     //app.get("/api/user/:userId", findUserById);
     //app.put("/api/user/:userId", updateUser);
    // app.delete("/api/user/:userId", deleteUser);
-
     var api = {
         createUser: createUser,
         findUserByUserId:findUserByUserId,
         updateUser:updateUser,
         deleteUser:deleteUser,
-        findUser:findUser
+        findUser:findUser,
+        findUserByFacebookId: findUserByFacebookId,
+        findUserByUsername:findUserByUsername,
+        findUserById:findUserById
     };
 
     var mongoose = require('mongoose');
+    mongoose.Promise = global.Promise;
 
     var UserSchema = require('./user.schema.server')();
     var UserModel = mongoose.model('UserModel', UserSchema);
@@ -36,15 +39,10 @@ module.exports = function (app) {
             )
     }
 
-    function createUser(req, res) {
-        var newUser = req.body;
-        UserModel
-            .create(newUser)
-            .then(function(user){
-                res.json(user);
-            }, function (err) {
-                res.sendStatus(400).send(err);
-            })
+    function createUser(user) {
+        return UserModel
+            .create(user);
+
     }
 
     function findUserByUserId(req, res) {
@@ -83,32 +81,22 @@ module.exports = function (app) {
             );
     }
 
-    function findUserById(req, res) {
-        var userId = req.params.userId;
-        UserModel
-            .findById(userId)
-            .then(function(user){
-                res.json(user);
-            });
+    function findUserById(id) {
+        return UserModel
+            .findById(id);
+
     }
 
 
 
 
+    function findUserByFacebookId(facebookId) {
+        return UserModel.findOne({'facebook.id': facebookId});
+    }
 
     function findUserByUsername(username) {
-        var result;
-        UserModel
-            .findOne({username:username})
-            .then(
-                function (user) {
-                    result = user;
-                },
-                function (error) {
-                    result = null;
-                }
-            );
-        return result;
+        return UserModel
+            .findOne({username:username});
     }
     function findUser(req, res) {
 
@@ -137,6 +125,7 @@ module.exports = function (app) {
                 }
             );
     }
+
     return api;
 
 };

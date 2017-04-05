@@ -14,13 +14,19 @@
 </nav>
 
 <!--Content-->
+<div id = "e" class="alert alert-danger" hidden>
+    update failed
+</div>
 <div class="container-fluid">
     <label>Name</label>
     <input id="pageName"
+           ng-change = "model.nameError()"
            ng-model = "model.page.name"
            type="text"
            class="form-control"
            placeholder="Blog Post"/>
+    <p id = "q" hidden >Name is required</p>
+
     <label>Title</label>
     <input id="pageTitle"
            ng-model = "model.page.description"
@@ -28,8 +34,7 @@
            class="form-control"
            placeholder="Page Title"/>
 
-    <a ng-href="#/user/{{model.userId}}/website/{{model.websiteId}}/page"
-       ng-click = "model.update_Page(model.page)"
+    <a ng-click = "model.update_Page(model.page)"
        class="btn btn-primary btn-block">Update</a>
     <a ng-click="model.delete_page()" class="btn btn-danger btn-block">Delete</a>
 

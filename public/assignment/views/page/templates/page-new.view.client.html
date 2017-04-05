@@ -13,15 +13,21 @@
             </div>
         </div>
     </nav>
-
+    <div id = "e" class="alert alert-danger" hidden>
+        create failed
+    </div>
     <!--Content-->
     <div class="container-fluid">
         <label>Name</label>
         <input id="pageName"
                ng-model = "model.page.name"
+               ng-change = "model.nameError()"
+
                type="text"
                class="form-control"
                placeholder="Page Name"/>
+        <p id = "q" hidden >Name is required</p>
+
         <label>Title</label>
         <input id="pageTitle"
                ng-model = "model.page.description"

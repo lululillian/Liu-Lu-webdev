@@ -55,16 +55,21 @@
                 </div>
             </li>
         </div>
+        <div id = "e" class="alert alert-danger" hidden>
+            Create failed
+        </div>
         <!--Right Content-->
         <div class="col-sm-8">
             <label>Name</label>
             <div class="margin-bottom-18px">
                 <input id="name"
+                       ng-change = "model.nameError()"
                        ng-model ="model.website.name"
                        type="text"
                        class="form-control"
                        placeholder="Name"/>
             </div>
+            <p id = "q" hidden >Name is required</p>
 
             <label>Description</label>
             <textarea id="description"

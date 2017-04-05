@@ -2,7 +2,20 @@
     angular
         .module("WebAppMaker")
         .config(configuration);
-
+    var checkLoggedin = function($q, $timeout, $http, $location, $rootScope) {
+        var deferred = $q.defer();
+        $http.get('/api/loggedin').success(function(user) {
+            $rootScope.errorMessage = null;
+            if (user !== '0') {
+                $rootScope.currentUser = user;
+                deferred.resolve();
+            } else {
+                deferred.reject();
+                $location.url('/login');
+            }
+        });
+        return deferred.promise;
+    }
     function configuration($routeProvider, $locationProvider, $httpProvider) {
 
         // $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
@@ -27,7 +40,9 @@
             .when("/profile/:uid",{
                 templateUrl: 'views/user/templates/profile.view.client.html',
                 controller: 'profileController',
-                controllerAs: 'model'
+                controllerAs: 'model',
+                resolve: { loggedin: checkLoggedin }
+
             })
             // 4.
             .when("/user/:uid/website",{
@@ -39,7 +54,9 @@
             .when("/user/:uid/website/new",{
                 templateUrl: 'views/website/templates/website-new.view.client.html',
                 controller: "WebsiteNewController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedin }
+
             })
             // 6.
             .when("/user/:uid/website/:wid",{
@@ -52,44 +69,65 @@
             .when("/user/:uid/website/:wid/page",{
                 templateUrl: 'views/page/templates/page-list.view.client.html',
                 controller: "PageListController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedin }
+
             })
             // 8.
             .when("/user/:uid/website/:wid/page/new",{
                 templateUrl: 'views/page/templates/page-new.view.client.html',
                 controller: "PageNewController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedin }
+
             })
             // 9.
             .when("/user/:uid/website/:wid/page/:pid",{
                 templateUrl: 'views/page/templates/page-edit.view.client.html',
                 controller: "PageEditController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedin }
+
             })
             // 10.
             .when("/user/:uid/website/:wid/page/:pid/widget",{
                 templateUrl: 'views/widget/templates/widget-list.view.client.html',
                 controller: "WidgetListController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedin }
+
             })
             // 11.
             .when("/user/:uid/website/:wid/page/:pid/widget/new",{
                 templateUrl: 'views/widget/templates/widget-chooser.view.client.html',
                 controller: "WidgetChooserController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedin }
+
             })
             // 12.
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid",{
                 templateUrl: 'views/widget/templates/widget-edit.view.client.html'
                 ,controller: "WidgetEditController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedin }
+
             })
 
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid/flickr",{
                 templateUrl: 'views/widget/templates/widget-flickr-search.view.client.html'
                 ,controller: "FlickrController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedin }
+
             })
+            .when ("/user", {
+                templateUrl: "views/user/templates/profile.view.client.html",
+                controller: "ProfileController",
+                controllerAs: "model",
+                resolve: { loggedin: checkLoggedin }
+            })
+
 
 
             // 13.
@@ -98,4 +136,5 @@
             });
 
     }
+
 })();

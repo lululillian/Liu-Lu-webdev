@@ -3,7 +3,6 @@
  */
 module.exports = function () {
     var mongoose = require('mongoose');
-
     var UserSchema = mongoose.Schema({
         username: String,
         password: String,
@@ -12,7 +11,11 @@ module.exports = function () {
         email: String,
         phone: String,
         //websites: [Website],
-        dateCreated: {type:Date,default:Date.now()}
+        dateCreated: {type:Date,default:Date.now()},
+        facebook: {
+            id:    String,
+            token: String
+        }
     }, {collection: 'user'});
 
     return UserSchema;
