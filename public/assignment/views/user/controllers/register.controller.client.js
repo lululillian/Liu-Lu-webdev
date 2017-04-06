@@ -40,6 +40,7 @@
                     var p = document.getElementById("p");
                     p.hidden = false;
                     error = true;
+
                 }
                 if (user == undefined || vm.confirm != user.password) {
                     var f = document.getElementById("f");

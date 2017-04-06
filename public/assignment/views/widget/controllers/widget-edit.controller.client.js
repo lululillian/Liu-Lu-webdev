@@ -3,9 +3,9 @@
         .module("WebAppMaker")
         .controller("WidgetEditController", WidgetEditController);
 
-    function WidgetEditController($routeParams, WidgetService) {
+    function WidgetEditController($routeParams,$rootScope, WidgetService) {
         var vm = this;
-        vm.userId = $routeParams.uid;
+        vm.userId = $rootScope.currentUser._id;
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
         vm.widgetId = $routeParams.wgid;

@@ -84,7 +84,6 @@ module.exports = function (app) {
     function findUserById(id) {
         return UserModel
             .findById(id);
-
     }
 
 

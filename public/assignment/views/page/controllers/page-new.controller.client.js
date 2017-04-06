@@ -3,9 +3,9 @@
         .module("WebAppMaker")
         .controller("PageNewController", PageNewController);
 
-    function PageNewController($routeParams, $location, PageService) {
+    function PageNewController($routeParams, $rootScope, $location, PageService) {
         var vm = this;
-        vm.userId = $routeParams.uid;
+        vm.userId = $rootScope.currentUser._id;
         vm.websiteId = $routeParams.wid;
         vm.nameError = nameError;
         function nameError(){

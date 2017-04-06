@@ -3,9 +3,9 @@
         .module("WebAppMaker")
         .controller("PageEditController", PageEditController);
 
-    function PageEditController($routeParams, $location, PageService) {
+    function PageEditController($routeParams,$rootScope,  $location, PageService) {
         var vm = this;
-        var userId = $routeParams.uid;
+        var userId = $rootScope.currentUser._id;
         var websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
         vm.nameError = nameError;

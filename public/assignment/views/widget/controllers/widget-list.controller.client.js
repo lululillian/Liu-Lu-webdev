@@ -3,12 +3,12 @@
         .module("WebAppMaker")
         .controller("WidgetListController", WidgetListController);
 
-    function WidgetListController($sce, $routeParams, WidgetService) {
+    function WidgetListController($sce, $routeParams,$rootScope,  WidgetService) {
         var vm = this;
         vm.getYouTubeEmbedUrl = getYouTubeEmbedUrl;
         vm.getTrustedHtml = getTrustedHtml;
         vm.getWidgetTemplateUrl = getWidgetTemplateUrl;
-        vm.userId = $routeParams.uid;
+        vm.userId = $rootScope.currentUser._id
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
         //vm.widgets = WidgetService.findAllWidgets(vm.pageId);

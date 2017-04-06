@@ -123,7 +123,7 @@
             })
             .when ("/user", {
                 templateUrl: "views/user/templates/profile.view.client.html",
-                controller: "ProfileController",
+                controller: "profileController",
                 controllerAs: "model",
                 resolve: { loggedin: checkLoggedin }
             })

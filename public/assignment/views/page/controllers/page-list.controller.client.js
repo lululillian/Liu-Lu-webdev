@@ -4,8 +4,8 @@
         .controller("PageListController", PageListController);
 
 
-    function PageListController($routeParams, $location, PageService) {
-        var userId = $routeParams.uid;
+    function PageListController($routeParams, $rootScope, $location, PageService) {
+        var userId = $rootScope.currentUser._id;
         var websiteId = $routeParams.wid;
         PageService.findAllPagesForWebsite(websiteId)
             .success(function(pages){

@@ -3,9 +3,9 @@
         .module("WebAppMaker")
         .controller("FlickrController", FlickrController);
 
-    function FlickrController($routeParams, FlickrService,WidgetService,$location) {
+    function FlickrController($routeParams, $rootScope, FlickrService,WidgetService,$location) {
         var vm = this;
-        vm.userId = $routeParams.uid;
+        vm.userId = $rootScope.currentUser._id;
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
         vm.widgetId = $routeParams.wgid;

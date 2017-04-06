@@ -3,9 +3,9 @@
         .module("WebAppMaker")
         .controller("WebsiteEditController", WebsiteEditController);
 
-    function WebsiteEditController($routeParams, $location, WebsiteService) {
+    function WebsiteEditController($routeParams,$rootScope, $location, WebsiteService) {
         var vm = this;
-        vm.userId = $routeParams.uid;
+        vm.userId = $rootScope.currentUser._id;
         vm.websiteId = $routeParams.wid;
         vm.deleteWebsite = deleteWebsite;
         vm.nameError = nameError;
